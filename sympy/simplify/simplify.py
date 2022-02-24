@@ -1185,10 +1185,12 @@ def walk(e, *target):
 
 
 def bottom_up(rv, F, atoms=False, nonbasic=False):
+    from sympy.printing.latex import latex
     """Apply ``F`` to all expressions in an expression tree from the
     bottom up. If ``atoms`` is True, apply ``F`` even if there are no args;
     if ``nonbasic`` is True, try to apply ``F`` to non-Basic objects.
     """
+    befLatex = latex(rv)
     args = getattr(rv, 'args', None)
     if args is not None:
         if args:
@@ -1204,7 +1206,14 @@ def bottom_up(rv, F, atoms=False, nonbasic=False):
                 rv = F(rv)
             except TypeError:
                 pass
-
+    aftLatex = latex(rv)
+    if aftLatex != befLatex:
+        from sympy import pprint
+        fucName = F.__repr__()
+        print("--------",fucName,'start----------')
+        print("beforeLatex",befLatex)
+        print("afterLatex",aftLatex)
+        pprint(rv)
     return rv
 
 
