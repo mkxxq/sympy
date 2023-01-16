@@ -17,8 +17,8 @@ try:
                                 import_kwargs={'fromlist': ['LaTeXParser']}).LaTeXParser
     LaTeXLexer = import_module('sympy.parsing.latex._antlr.latexlexer',
                                import_kwargs={'fromlist': ['LaTeXLexer']}).LaTeXLexer
-except Exception:
-    pass
+except Exception as ex:
+    print("load LaTeXLexer",ex)
 
 ErrorListener = import_module('antlr4.error.ErrorListener',
                               warn_not_installed=True,

@@ -222,6 +222,7 @@ from .tensor import (IndexedBase, Idx, Indexed, get_contraction_structure,
         permutedims, Array, DenseNDimArray, SparseNDimArray)
 
 from .parsing import parse_expr
+from .parsing.latex import parse_latex
 
 from .calculus import (euler_equations, singularities, is_increasing,
         is_strictly_increasing, is_decreasing, is_strictly_decreasing,
@@ -459,6 +460,8 @@ __all__ = [
 
     # sympy.parsing
     'parse_expr',
+    # sympy.parsing.latex
+    'parse_latex',
 
     # sympy.calculus
     'euler_equations', 'singularities', 'is_increasing',
