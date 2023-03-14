@@ -1206,14 +1206,14 @@ def bottom_up(rv, F, atoms=False, nonbasic=False):
                 rv = F(rv)
             except TypeError:
                 pass
-    aftLatex = latex(rv)
-    if aftLatex != befLatex:
-        from sympy import pprint
-        fucName = F.__repr__()
-        print("--------",fucName,'start----------')
-        print("beforeLatex",befLatex)
-        print("afterLatex",aftLatex)
-        pprint(rv)
+    # aftLatex = latex(rv)
+    # if aftLatex != befLatex:
+    #     from sympy import pprint
+    #     fucName = F.__repr__()
+    #     print("--------",fucName,'start----------')
+    #     print("beforeLatex",befLatex)
+    #     print("afterLatex",aftLatex)
+    #     pprint(rv)
     return rv
 
 
